@@ -39,11 +39,14 @@ var type = 'seasonal';
   // var data = request.body['data'].split('|');
   // console.log('Diseases: ', request.body['diseases'], 'Country: ', request.body['geo']);
 
-  var out = R("ex-sync.R")
+	console.log('Calling R Script...');
+  var out = R("stl-async.R")
     .data(data, type)
-    .callSync();
+		.call(function(err, out) {
+	    if (err) throw err;
+	    console.log(out);
+	  });
 
-	console.log(out);
   // response.json(out);
 // });
 
