@@ -1,4 +1,3 @@
-needs(magrittr)
 needs(stlplus)
 
 vectorToTS <- function(data) {
