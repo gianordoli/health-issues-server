@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development nodemon index.js",
+    "production": "NODE_ENV=production FORCE_COLOR=true pm2 start index.js --name health-issues --log ~/health-issues.log --node-args='--nouse-idle-notification --expose-gc --max_old_space_size=8192'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "chalk": "^2.1.0",
     "cors": "^2.8.4",
     "express": "^4.16.1",
+    "pm2": "^2.7.1",
     "r-script": "0.0.3"
   }
 }
