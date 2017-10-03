@@ -36,11 +36,13 @@ app.post('/stl', cors(corsOptions), function(request, response){
   var data = request.body['data'].split('|');
   console.log('Diseases: ', request.body['diseases'], 'Country: ', request.body['geo']);
 
-  var out = R("ex-sync.R")
+  var out = R("stl-async.R")
     .data(data, type)
-    .callSync();
-
-  response.json(out);
+    // .callSync();
+		.call(function(err, out) {
+	    if (err) throw err;
+  		response.json(out);
+	  });
 });
 
 var PORT = 4000;
