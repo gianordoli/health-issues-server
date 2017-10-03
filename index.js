@@ -38,11 +38,12 @@ app.post('/stl', cors(corsOptions), function(request, response){
 
   var out = R("stl-async.R")
     .data(data, type)
-    // .callSync();
-		.call(function(err, out) {
-	    if (err) throw err;
-  		response.json(out);
-	  });
+    .callSync();
+		// .call(function(err, out) {
+	  //   if (err) throw err;
+  	// 	response.json(out);
+	  // });
+		response.json(out);
 });
 
 var PORT = 4000;
