@@ -46,7 +46,7 @@ app.post('/stl', cors(corsOptions), function(request, response){
 		response.json(out);
 });
 
-var PORT = 4000;
+var PORT = 3000;
 app.listen(PORT, function(){
 	console.log('Express server is running at ' + PORT);
 });
